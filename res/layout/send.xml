@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    android:padding="6dp" >
+
+    <RelativeLayout
+        android:id="@+id/send"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#fff" >
+
+        <EditText
+            android:id="@+id/send_input"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:focusable="true"
+            android:gravity="left|top"
+            android:hint="@string/send_hint"
+            android:inputType="textMultiLine"
+            android:minLines="6"
+            android:textColor="#000"
+            android:textCursorDrawable="@null" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/send_layout"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/send"
+        android:layout_marginTop="10dp"
+        android:background="#fff"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/send_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ddd"
+            android:onClick="clickHandler"
+            android:padding="5dp"
+            android:text="@string/send_btn"
+            android:textColor="#111" />
+
+        <Button
+            android:id="@+id/image_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ddd"
+            android:onClick="imageHandler"
+            android:padding="5dp"
+            android:text="@string/image_btn"
+            android:textColor="#111" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/send_layout"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/image_btn" />
+
+</RelativeLayout>
