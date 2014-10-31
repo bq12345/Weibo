@@ -10,6 +10,7 @@
     <string name="send_hint">最近有什么新鲜事</string>
     <string name="send_btn">发布</string>
     <string name="image_btn">照片</string>
+    <string name="loading">正尽全力加载微博..</string>
     <!-- 功能列表 -->
     <string name="weibosdk_demo_feature_oauth">微博授权</string>
     <string name="weibosdk_demo_feature_share">分享到微博</string>
@@ -72,9 +73,9 @@
     <string name="weibosdk_demo_share_video_desc">视频描述：XXX</string>
     <string name="weibosdk_demo_share_voice_desc">声音描述：XXX</string>
     <string name="weibosdk_demo_app_url">https://github.com/mobileresearch/weibo_android_sdk/blob/master/WeiboSDKDemo.apk</string>
-    <string name="weibosdk_demo_test_webpage_url">http://news.sina.com.cn/c/2013-10-22/021928494669.shtml</string>
+    <string name="weibosdk_demo_test_webpage_url">http://news.sina.com.cn/c/2013&#8211;10&#8211;22/021928494669.shtml</string>
     <string name="weibosdk_demo_test_music_url">http://music.sina.com.cn/yueku/i/2850305.html</string>
-    <string name="weibosdk_demo_test_video_url">http://video.sina.com.cn/p/sports/cba/v/2013-10-22/144463050817.html</string>
+    <string name="weibosdk_demo_test_video_url">http://video.sina.com.cn/p/sports/cba/v/2013&#8211;10&#8211;22/144463050817.html</string>
     <!-- NOTE: Voice 的 URL 与 Music 一样 -->
     <string name="weibosdk_demo_test_voice_url">http://music.sina.com.cn/yueku/i/2850305.html</string>
 

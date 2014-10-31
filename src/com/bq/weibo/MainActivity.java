@@ -17,7 +17,7 @@ public class MainActivity extends TabActivity implements
 	private TabHost tabhost;
 	private Intent iHome;
 	private Intent iInfo;
-	private Intent iMore;
+	private Intent iSend;
 	private Oauth2AccessToken mAccessToken;
 	Intent intent;
 
@@ -50,12 +50,12 @@ public class MainActivity extends TabActivity implements
 						getResources().getDrawable(R.drawable.icon_3_n))
 				.setContent(iInfo));
 
-		iMore = new Intent(this, SendActivity.class);
+		iSend = new Intent(this, SendActivity.class);
 		tabhost.addTab(tabhost
-				.newTabSpec("iMore")
+				.newTabSpec("iSend")
 				.setIndicator(getResources().getString(R.string.send),
 						getResources().getDrawable(R.drawable.icon_5_n))
-				.setContent(iMore));
+				.setContent(iSend));
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class MainActivity extends TabActivity implements
 			this.tabhost.setCurrentTabByTag("iInfo");
 			break;
 		case R.id.radio_button4:
-			this.tabhost.setCurrentTabByTag("iMore");
+			this.tabhost.setCurrentTabByTag("iSend");
 			break;
 		}
 	}

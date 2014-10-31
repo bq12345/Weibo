@@ -1,9 +1,12 @@
 package com.bq.adapter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +14,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bq.models.Status;
+import com.bq.models.StatusList;
+import com.bq.util.DateUtil;
 import com.bq.util.ReadImage;
 import com.bq.weibo.R;
-import com.sina.weibo.sdk.openapi.models.Status;
-import com.sina.weibo.sdk.openapi.models.StatusList;
 
 public class WeiboAdapter extends BaseAdapter {
 	private ArrayList<Status> weibos;
@@ -52,22 +56,38 @@ public class WeiboAdapter extends BaseAdapter {
 			viewHolder.icon = (ImageView) convertView.findViewById(R.id.icon);
 			viewHolder.date = (TextView) convertView.findViewById(R.id.date);
 			viewHolder.text = (TextView) convertView.findViewById(R.id.text);
+			viewHolder.image = (ImageView) convertView.findViewById(R.id.image);
 			viewHolder.reposts = (TextView) convertView
 					.findViewById(R.id.reposts);
 			viewHolder.comments = (TextView) convertView
 					.findViewById(R.id.comments);
+			viewHolder.attitudes = (TextView) convertView
+					.findViewById(R.id.attitudes);
 			convertView.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
-		viewHolder.icon.setImageBitmap(ReadImage.getImage(weibo.user.profile_image_url));
-		//viewHolder.icon.setImageBitmap(null);
+		viewHolder.icon.setImageBitmap(ReadImage
+				.getImage(weibo.user.profile_image_url));
 		viewHolder.user.setText(weibo.user.name);
-		viewHolder.date.setText(weibo.created_at);
+		String date = new SimpleDateFormat("MM/dd HH:mm:ss", Locale.CHINA)
+				.format(DateUtil.parse(weibo.created_at, "MM/dd HH:mm:ss"));
+		viewHolder.date.setText(date);
 		viewHolder.text.setText(weibo.text);
-		viewHolder.reposts.setText("转发数:" + weibo.reposts_count);
-		viewHolder.comments.setText("评论数:" + weibo.comments_count);
+		Bitmap imageRes = ReadImage.getImage(weibo.bmiddle_pic);
+		if (imageRes != null) {
+			viewHolder.image.setImageBitmap(imageRes);
+		} else {
+			viewHolder.image.setImageBitmap(null);
+		}
+		viewHolder.reposts.setText("转发 " + weibo.reposts_count);
+		viewHolder.comments.setText("评论 " + weibo.comments_count);
+		viewHolder.attitudes.setText("点赞 " + weibo.attitudes_count);
 		return convertView;
+	}
+
+	public void addItem(Status weibo) {
+		weibos.add(weibo);
 	}
 
 	private static class ViewHolder {
@@ -75,8 +95,10 @@ public class WeiboAdapter extends BaseAdapter {
 		public TextView user;
 		public TextView date;
 		public TextView text;
+		public ImageView image;
 		public TextView reposts;
 		public TextView comments;
+		public TextView attitudes;
 	}
 
 }

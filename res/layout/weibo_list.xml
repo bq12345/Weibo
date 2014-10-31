@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#fff"
-    android:padding="6dp">
+    android:padding="6dp" >
 
     <RelativeLayout
         android:id="@+id/top"
@@ -13,14 +13,14 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:contentDescription="@string/app_name" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="6dp"
             android:layout_toRightOf="@id/icon" >
 
@@ -36,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/user"
                 android:layout_marginTop="4dp"
-                android:textColor="#666" />
+                android:textColor="#666"
+                android:textSize="12sp" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -53,18 +54,17 @@
             android:layout_alignParentTop="true"
             android:textColor="#666" />
 
-        <View
-            android:id="@+id/line"
+        <ImageView
+            android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/text"
-            android:layout_marginTop="2dp"
-            android:background="#999" />
+            android:contentDescription="@string/image_btn" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/line"
+            android:layout_below="@id/image"
             android:layout_marginTop="4dp"
             android:orientation="horizontal" >
 
@@ -73,6 +73,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
                 android:textColor="#666" />
 
             <TextView
@@ -80,6 +82,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
+                android:textColor="#666" />
+
+            <TextView
+                android:id="@+id/attitudes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
                 android:textColor="#666" />
         </LinearLayout>
     </RelativeLayout>

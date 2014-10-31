@@ -27,11 +27,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bq.models.CommentList;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.CommentsAPI;
-import com.sina.weibo.sdk.openapi.models.CommentList;
 import com.sina.weibo.sdk.utils.LogUtil;
 
 /**

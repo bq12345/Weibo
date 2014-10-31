@@ -27,12 +27,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bq.models.ErrorInfo;
+import com.bq.models.User;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.UsersAPI;
-import com.sina.weibo.sdk.openapi.models.ErrorInfo;
-import com.sina.weibo.sdk.openapi.models.User;
 import com.sina.weibo.sdk.utils.LogUtil;
 
 /**
