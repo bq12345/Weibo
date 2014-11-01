@@ -1,5 +1,7 @@
 package com.bq.weibo;
 
+import java.util.ArrayList;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 
 import com.bq.adapter.WeiboAdapter;
 import com.bq.models.ErrorInfo;
+import com.bq.models.Status;
 import com.bq.models.StatusList;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
@@ -56,7 +59,6 @@ public class HomeActivity extends Activity {
 		lv.addFooterView(loadMoreView);
 		lv.setFadingEdgeLength(0);
 		progress.setVisibility(View.VISIBLE);
-
 		mAccessToken = AccessTokenKeeper.readAccessToken(this);
 		mStatusesAPI = new StatusesAPI(mAccessToken);
 		mStatusesAPI.friendsTimeline(0L, 0L, 10, 1, false, 0, false, mListener);
@@ -141,12 +143,13 @@ public class HomeActivity extends Activity {
 					// 调用 StatusList#parse 解析字符串成微博列表对象
 					StatusList statuses = StatusList.parse(response);
 					if (statuses != null && statuses.total_number > 0) {
-						for (int i = 1; i < statuses.total_number; i++)
-							adapter.addItem(statuses.statusList.get(i));
+						ArrayList<Status> list = statuses.statusList;
+						int num = list.size();
+						for (int i = 0; i < num; i++)
+							adapter.addItem(list.get(i));
 						adapter.notifyDataSetChanged();
 						loadMoreButton.setText("加载更多");
-						maxId = Long.parseLong(statuses.statusList
-								.get(statuses.total_number - 1).id);
+						maxId = Long.parseLong(list.get(num - 1).id);
 						refershing = false;
 						progress.setVisibility(View.GONE);
 

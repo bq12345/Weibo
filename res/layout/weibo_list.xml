@@ -41,10 +41,41 @@
         </RelativeLayout>
     </RelativeLayout>
 
+    <!-- 转发的子微博内容 -->
+
+    <LinearLayout
+        android:id="@+id/sublayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/popup"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <!-- 微博正文内容 -->
+
+        <TextView
+            android:id="@+id/sub_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="#6b717b"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/sub_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone" />
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/top"
+        android:layout_below="@id/sublayout"
         android:layout_marginTop="6dp" >
 
         <TextView
