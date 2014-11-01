@@ -10,7 +10,7 @@
         layout="@layout/tilte_bar" />
 
     <include
-        android:id="@+id/layout_progress"
+        android:id="@+id/home_layout_progress"
         layout="@layout/progress" />
 
     <ListView

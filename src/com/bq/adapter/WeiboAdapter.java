@@ -87,7 +87,8 @@ public class WeiboAdapter extends BaseAdapter {
 		Date date = DateUtil.parse(weibo.created_at);
 
 		DateFormat sdf = new SimpleDateFormat("mm:ss", Locale.US);
-		viewHolder.date.setText(sdf.format(date));
+		final String str = sdf.format(date);
+		viewHolder.date.setText(str);
 		viewHolder.text.setText(weibo.text);
 		Bitmap imageRes = ReadImage.getImage(weibo.bmiddle_pic);
 		if (imageRes != null) {
@@ -119,18 +120,15 @@ public class WeiboAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				switch (v.getId()) {
-				case R.id.text:
-				case R.id.image:
-					Intent intent = new Intent(context, CommentActivity.class);
-					intent.putExtra("text", weibo.text);
-					intent.putExtra("id", weibo.id);
-					context.startActivity(intent);
-					break;
-				default:
-					break;
+				Intent intent = new Intent(context, CommentActivity.class);
+				intent.putExtra("text", weibo.text);
+				intent.putExtra("user", weibo.user.name);
+				intent.putExtra("date", str);
+				intent.putExtra("id", weibo.id);
+				if (weibo.comments_count > 0) {
+					intent.putExtra("comments", weibo.comments_count);
 				}
-
+				context.startActivity(intent);
 			}
 
 		});

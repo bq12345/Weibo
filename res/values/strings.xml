@@ -10,11 +10,12 @@
     <string name="send_hint">最近有什么新鲜事</string>
     <string name="send_btn">发布</string>
     <string name="image_btn">照片</string>
-    <string name="loading">正尽全力加载微博..</string>
+    <string name="loading">正尽全力加载..</string>
     <string name="comment_hint">说点什么吧</string>
     <string name="comment_btn">评论</string>
     <string name="cancel_btn">取消</string>
-    
+    <string name="comment_title">评论微博</string>
+    <string name="comment_list">评论列表</string>
     <!-- 功能列表 -->
     <string name="weibosdk_demo_feature_oauth">微博授权</string>
     <string name="weibosdk_demo_feature_share">分享到微博</string>

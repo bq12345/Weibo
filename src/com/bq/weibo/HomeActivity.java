@@ -50,7 +50,7 @@ public class HomeActivity extends Activity {
 		setContentView(R.layout.home);
 		lv = (ListView) findViewById(R.id.lv);
 		tv_title = (TextView) findViewById(R.id.txt_wb_title);
-		progress = (LinearLayout) findViewById(R.id.layout_progress);
+		progress = (LinearLayout) findViewById(R.id.home_layout_progress);
 		View loadMoreView = getLayoutInflater().inflate(R.layout.load_more,
 				null);
 		tv_title.setText("微博");
